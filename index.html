@@ -365,19 +365,229 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
 
 <script>
 const answers = {};
+
+/*
+  MAPEAMENTO DOS PARÂMETROS:
+  estilo:    aventura | romantico | simples | sofisticado
+  orcamento: ate150 | 150a400 | 400a700 | acima700
+  regiao:    brasilia | entorno | pirenopolis | chapada | tanto
+  periodo:   semana | fds (todos aceitam ambos por padrão)
+
+  REGRAS:
+  - regiao "entorno" = cidades do entorno do DF mas NÃO Goiás (Brazlândia está no DF)
+  - regiao "chapada" = Formosa, Mambaí, Alto Paraíso, Vila de São Jorge
+  - regiao "pirenopolis" = Pirenópolis
+  - regiao "brasilia" = dentro do DF (Taguatinga, Lago Norte, Asa Sul, Jardim Botânico)
+  - "tanto" NÃO deve aparecer sozinho — serve apenas como coringa se o usuário escolher "Tanto faz"
+*/
+
 const lugares = [
-  {nome:"Casa da Colina",emoji:"🏡",tipo:"🌿 Natureza & Aventura",local:"Brazlândia, Brasília - DF",estilo:["aventura"],orcamento:["400a700","acima700"],regiao:["entorno","tanto"],valores:"Bangalô a partir de R$962/diária",contato:"(61) 98286-6251",cupom:"CASALVINTTE",beneficio:"1 diária = 1 prato principal grátis | Mais de 1 diária = 25% na 2ª diária",experiencia:"Chalé em meio à natureza com café da manhã completo incluso, passeio a cavalo e jacuzzi. Aconchegante e ideal para desacelerar juntos.",obs:""},
-  {nome:"Motel Insides",emoji:"💕",tipo:"💕 Romântico & Íntimo",local:"Taguatinga, Brasília - DF",estilo:["romantico","simples"],orcamento:["ate150","150a400"],regiao:["brasilia","tanto"],valores:"A partir de R$279",contato:"(61) 3356-7100",cupom:"CASAL20",beneficio:"20% de desconto em reservas pelo site ou app",experiencia:"Várias opções de suítes preparadas para criar um momento especial. Privacidade, conforto e experiência diferente da rotina.",obs:""},
-  {nome:"Chapada Indaiá",emoji:"🌊",tipo:"🌿 Natureza & Aventura",local:"Formosa - GO",estilo:["aventura"],orcamento:["ate150","150a400"],regiao:["chapada","tanto"],valores:"Entrada: R$40/pessoa | Diária: R$314",contato:"chapadaindaia.com.br",cupom:"CASAL20",beneficio:"20% de desconto no site ou app",experiencia:"Ecoparque com cachoeiras, trilhas e hospedagens aconchegantes. Mistura aventura e descanso em um só lugar.",obs:""},
-  {nome:"Mambaí Adventure",emoji:"🧗",tipo:"🌿 Natureza & Aventura",local:"Mambaí - GO",estilo:["aventura"],orcamento:["150a400","400a700"],regiao:["chapada","entorno","tanto"],valores:"Pacotes a partir de R$355/pessoa",contato:"(62) 99978-5979",cupom:"CASALVINTTE",beneficio:"10% de desconto nos pacotes",experiencia:"Cachoeiras, cavernas, trilhas, rapel e tirolesa. Para casais que querem criar memórias diferentes e viver momentos intensos juntos.",obs:""},
-  {nome:"Cabanas Mirante do Cerrado",emoji:"🌿",tipo:"💕 Romântico & Íntimo",local:"Jardim Botânico, Brasília - DF",estilo:["romantico","sofisticado"],orcamento:["400a700","acima700"],regiao:["brasilia","entorno","tanto"],valores:"A partir de R$900/diária",contato:"(61) 98538-3944",cupom:"CASAL20",beneficio:"10% de desconto nas reservas",experiencia:"Cabanas privativas com vista incrível do cerrado, hidromassagem e piscina. Ambiente totalmente pensado para relaxar juntos.",obs:""},
-  {nome:"Ticiana Werner Wine Bar",emoji:"🍷",tipo:"🥂 Sofisticado & Especial",local:"Asa Sul, Brasília - DF",estilo:["sofisticado","romantico"],orcamento:["400a700","acima700"],regiao:["brasilia","tanto"],valores:"R$400/casal + R$130 taças personalizadas",contato:"(61) 98263-6847 (WhatsApp)",cupom:"",beneficio:"Jantar em etapas com música ao vivo e lembranças do casal",experiencia:"Jantar completo com entrada, prato principal e sobremesas. Música ao vivo e ambiente totalmente pensado para casais.",obs:"Benefício especial de março: 1 espumante 1913 Brut"},
-  {nome:"Chalé Sunshine",emoji:"☀️",tipo:"💕 Romântico & Íntimo",local:"Lago Norte, Brasília - DF",estilo:["romantico","simples"],orcamento:["150a400","400a700"],regiao:["brasilia","tanto"],valores:"R$510 a R$560/diária",contato:"(61) 99216-9881",cupom:"CASAL20",beneficio:"10% de desconto nas reservas",experiencia:"Vista incrível para o Lago Paranoá, jacuzzi e área externa para relaxar. Estrutura completa para aproveitar sem precisar sair.",obs:""},
-  {nome:"Pousada Sabai",emoji:"✨",tipo:"🥂 Sofisticado & Especial",local:"Alto Paraíso de Goiás - GO",estilo:["sofisticado","romantico"],orcamento:["400a700","acima700"],regiao:["chapada","tanto"],valores:"A partir de R$650/diária",contato:"(61) 99138-7147",cupom:"SABAI10",beneficio:"10% de desconto via link exclusivo",experiencia:"Piscina de borda infinita, hidromassagem e ambientes sofisticados com vista para o cerrado. Exclusivo e inesquecível.",obs:"Desconto aplicado pelo link deles"},
-  {nome:"Piri Cabanas",emoji:"🔥",tipo:"💕 Romântico & Íntimo",local:"Pirenópolis - GO",estilo:["romantico","aventura"],orcamento:["400a700","acima700"],regiao:["pirenopolis","tanto"],valores:"A partir de R$900/diária",contato:"(62) 99691-2338",cupom:"casalvintte",beneficio:"Benefícios exclusivos ao reservar",experiencia:"Cabanas com ofurô, lareira e vista do pôr do sol. Clima aconchegante e romântico para um final de semana só de vocês.",obs:""},
-  {nome:"Cabana Valley",emoji:"🏕️",tipo:"💕 Romântico & Íntimo",local:"Brasília / Entorno - DF",estilo:["romantico"],orcamento:["acima700"],regiao:["brasilia","entorno","tanto"],valores:"R$1.300,00/diária",contato:"(61) 99887-8220",cupom:"casalvintte",beneficio:"Decoração Instante a Dois — decoração romântica na cama do chalé",experiencia:"Ambiente preparado para criar um momento íntimo e inesquecível. Decoração romântica exclusiva no chalé.",obs:""},
-  {nome:"Café Ducentre",emoji:"☕",tipo:"☕ Simples & Aconchegante",local:"Brasília - DF",estilo:["simples"],orcamento:["ate150","150a400"],regiao:["brasilia","tanto"],valores:"Em média R$35 a R$65",contato:"(61) 99687-1247",cupom:"",beneficio:"10% de desconto em consumação acima de R$60 na 1ª visita",experiencia:"Estrutura super temática, parece que você está em Paris. Atendimento sensacional e cada pedido melhor que o outro.",obs:"Desconto apenas na primeira visita"},
-  {nome:"Conquistando o SIM",emoji:"💍",tipo:"🥂 Sofisticado & Especial",local:"Entrega para todo o Brasil",estilo:["sofisticado","romantico"],orcamento:["ate150","150a400"],regiao:["brasilia","entorno","pirenopolis","chapada","tanto"],valores:"Kits entre R$95 a R$180",contato:"(62) 9 9939-1847",cupom:"",beneficio:"15% de desconto em Kits Monte Você Mesmo e pedidos de casamento",experiencia:"Kits Monte Você Mesmo e pedidos de casamento personalizados. Entrega para todo o Brasil.",obs:""},
+  {
+    nome: "Casa da Colina",
+    emoji: "🏡",
+    tipo: "🌿 Natureza & Aventura",
+    local: "Brazlândia, Brasília - DF",
+    // Natureza, está no DF (Brazlândia é região administrativa do DF)
+    estilo: ["aventura"],
+    // Diária R$962 = acima de 700
+    orcamento: ["acima700"],
+    // Brazlândia = DF = brasilia (entorno do DF urbano)
+    regiao: ["brasilia", "entorno"],
+    valores: "Bangalô a partir de R$962/diária",
+    contato: "(61) 98286-6251",
+    cupom: "CASALVINTTE",
+    beneficio: "1 diária = 1 prato principal grátis | Mais de 1 diária = 25% na 2ª diária",
+    experiencia: "Chalé em meio à natureza com café da manhã completo incluso, passeio a cavalo e jacuzzi. Aconchegante e ideal para desacelerar juntos.",
+    obs: ""
+  },
+  {
+    nome: "Motel Insides",
+    emoji: "💕",
+    tipo: "💕 Romântico & Íntimo",
+    local: "Taguatinga, Brasília - DF",
+    // Romântico e íntimo, dentro do DF
+    estilo: ["romantico"],
+    // Loft a partir de R$279 = 150 a 400
+    orcamento: ["150a400"],
+    regiao: ["brasilia"],
+    valores: "A partir de R$279",
+    contato: "(61) 3356-7100",
+    cupom: "CASAL20",
+    beneficio: "20% de desconto em reservas pelo site ou app",
+    experiencia: "Várias opções de suítes preparadas para criar um momento especial. Privacidade, conforto e experiência diferente da rotina.",
+    obs: ""
+  },
+  {
+    nome: "Chapada Indaiá",
+    emoji: "🌊",
+    tipo: "🌿 Natureza & Aventura",
+    local: "Formosa - GO (Chapada dos Veadeiros)",
+    // Natureza/aventura, Formosa = Chapada dos Veadeiros
+    estilo: ["aventura"],
+    // Entrada R$40/pessoa + diária R$314 = pode ser ate150 (só entrada) ou 150a400 (com hospedagem)
+    orcamento: ["ate150", "150a400"],
+    regiao: ["chapada"],
+    valores: "Entrada cachoeiras: R$40/pessoa | Diária hospedagem: R$314",
+    contato: "chapadaindaia.com.br",
+    cupom: "CASAL20",
+    beneficio: "20% de desconto no site ou app",
+    experiencia: "Ecoparque com cachoeiras, trilhas e hospedagens aconchegantes dentro do próprio espaço. Mistura aventura e descanso em um só lugar.",
+    obs: ""
+  },
+  {
+    nome: "Mambaí Adventure",
+    emoji: "🧗",
+    tipo: "🌿 Natureza & Aventura",
+    local: "Mambaí - GO (Chapada dos Veadeiros)",
+    // Aventura pura, Mambaí fica na região da Chapada dos Veadeiros
+    estilo: ["aventura"],
+    // Pacotes a partir de R$355/pessoa = para casal ~R$710 = 400a700
+    orcamento: ["400a700"],
+    regiao: ["chapada"],
+    valores: "Pacotes a partir de R$355/pessoa",
+    contato: "(62) 99978-5979",
+    cupom: "CASALVINTTE",
+    beneficio: "10% de desconto nos pacotes",
+    experiencia: "Cachoeiras, cavernas, trilhas, rapel e tirolesa em meio à natureza. Para casais que querem criar memórias diferentes e viver momentos intensos juntos.",
+    obs: ""
+  },
+  {
+    nome: "Cabanas Mirante do Cerrado",
+    emoji: "🌿",
+    tipo: "💕 Romântico & Íntimo",
+    local: "Jardim Botânico / Altiplano Leste - Brasília, DF",
+    // Romântico, Jardim Botânico = dentro do DF
+    estilo: ["romantico", "sofisticado"],
+    // A partir de R$900 = acima de 700
+    orcamento: ["acima700"],
+    regiao: ["brasilia"],
+    valores: "A partir de R$900/diária",
+    contato: "(61) 98538-3944",
+    cupom: "CASAL20",
+    beneficio: "10% de desconto nas reservas",
+    experiencia: "Cabanas privativas com vista incrível do cerrado, hidromassagem e piscina. Ambiente totalmente pensado para relaxar e viver momentos íntimos juntos.",
+    obs: ""
+  },
+  {
+    nome: "Ticiana Werner Wine Bar",
+    emoji: "🍷",
+    tipo: "🥂 Sofisticado & Especial",
+    local: "Asa Sul - Brasília, DF",
+    // Restaurante sofisticado, Asa Sul = dentro do DF
+    estilo: ["sofisticado"],
+    // Jantar R$400/casal = 150a400 (sem as taças) ou 400a700 (com taças R$130)
+    orcamento: ["150a400", "400a700"],
+    regiao: ["brasilia"],
+    valores: "Jantar romântico: R$400/casal | Taças personalizadas: +R$130",
+    contato: "(61) 98263-6847 (WhatsApp) | (61) 3226-9947",
+    cupom: "",
+    beneficio: "Jantar em etapas com música ao vivo e lembranças do casal ao final",
+    experiencia: "Jantar completo com entrada (tábua de frios ou antepastos), prato principal (risotos e carnes) e sobremesas impecáveis. Música ao vivo e lembranças do casal.",
+    obs: "Benefício especial de março: 1 espumante 1913 Brut de brinde"
+  },
+  {
+    nome: "Chalé Sunshine",
+    emoji: "☀️",
+    tipo: "💕 Romântico & Íntimo",
+    local: "Lago Norte - Brasília, DF",
+    // Romântico, Lago Norte = dentro do DF
+    estilo: ["romantico"],
+    // Diárias R$510-R$560 = 400a700
+    orcamento: ["400a700"],
+    regiao: ["brasilia"],
+    valores: "Diárias entre R$510 e R$560",
+    contato: "(61) 99216-9881",
+    cupom: "CASAL20",
+    beneficio: "10% de desconto nas reservas",
+    experiencia: "Vista incrível para o Lago Paranoá, jacuzzi e área externa para relaxar. Estrutura completa para aproveitar sem precisar sair do chalé.",
+    obs: ""
+  },
+  {
+    nome: "Pousada Sabai",
+    emoji: "✨",
+    tipo: "🥂 Sofisticado & Especial",
+    local: "Vila de São Jorge - Alto Paraíso de Goiás, GO",
+    // Sofisticado, Vila de São Jorge = Chapada dos Veadeiros
+    estilo: ["sofisticado", "romantico"],
+    // A partir de R$650 = 400a700
+    orcamento: ["400a700", "acima700"],
+    regiao: ["chapada"],
+    valores: "A partir de R$650/diária",
+    contato: "(61) 99138-7147",
+    cupom: "SABAI10",
+    beneficio: "10% de desconto via link exclusivo",
+    experiencia: "Piscina de borda infinita, hidromassagem e ambientes sofisticados com vista para o cerrado. Exclusivo e inesquecível.",
+    obs: "Desconto aplicado pelo link deles"
+  },
+  {
+    nome: "Piri Cabanas",
+    emoji: "🔥",
+    tipo: "💕 Romântico & Íntimo",
+    local: "Pirenópolis - GO",
+    // Romântico, Pirenópolis = pirenopolis (categoria própria)
+    estilo: ["romantico"],
+    // A partir de R$900 = acima de 700
+    orcamento: ["acima700"],
+    regiao: ["pirenopolis"],
+    valores: "A partir de R$900/diária",
+    contato: "(62) 99691-2338",
+    cupom: "casalvintte",
+    beneficio: "Benefícios exclusivos ao reservar",
+    experiencia: "Cabanas com ofurô, lareira e vista incrível do pôr do sol. Clima aconchegante e romântico para um final de semana só de vocês.",
+    obs: ""
+  },
+  {
+    nome: "Cabana Valley",
+    emoji: "🏕️",
+    tipo: "💕 Romântico & Íntimo",
+    local: "Brasília / Entorno - DF",
+    // Romântico, entorno do DF
+    estilo: ["romantico"],
+    // R$1.300/diária = acima de 700
+    orcamento: ["acima700"],
+    regiao: ["brasilia", "entorno"],
+    valores: "R$1.300,00/diária",
+    contato: "(61) 99887-8220",
+    cupom: "casalvintte",
+    beneficio: "Decoração Instante a Dois — decoração romântica na cama do chalé",
+    experiencia: "Ambiente preparado para criar um momento íntimo e inesquecível. Decoração romântica exclusiva inclusa no chalé.",
+    obs: ""
+  },
+  {
+    nome: "Café Ducentre",
+    emoji: "☕",
+    tipo: "☕ Simples & Aconchegante",
+    local: "Brasília - DF",
+    // Café simples, dentro do DF
+    estilo: ["simples"],
+    // Média R$35-R$65 = até 150
+    orcamento: ["ate150"],
+    regiao: ["brasilia"],
+    valores: "Em média R$35 a R$65 por casal",
+    contato: "(61) 99687-1247",
+    cupom: "",
+    beneficio: "10% de desconto em consumação acima de R$60 na 1ª visita",
+    experiencia: "Estrutura super temática que parece que você está em Paris. Atendimento sensacional e cada pedido melhor que o outro.",
+    obs: "Desconto apenas na primeira visita"
+  },
+  {
+    nome: "Conquistando o SIM",
+    emoji: "💍",
+    tipo: "🥂 Sofisticado & Especial",
+    local: "Online — Entrega para todo o Brasil",
+    // Kits para pedido de casamento — sofisticado/romantico, disponível em qualquer região
+    estilo: ["sofisticado", "romantico"],
+    // Kits R$95-R$180 = até 150 e 150a400
+    orcamento: ["ate150", "150a400"],
+    // Entrega em qualquer lugar = todas as regiões
+    regiao: ["brasilia", "entorno", "pirenopolis", "chapada"],
+    valores: "Kits entre R$95 e R$180",
+    contato: "(62) 9 9939-1847",
+    cupom: "",
+    beneficio: "15% de desconto em Kits Monte Você Mesmo e pedidos de casamento",
+    experiencia: "Kits Monte Você Mesmo e pedidos de casamento personalizados. Entrega para todo o Brasil.",
+    obs: ""
+  },
 ];
 
 const grid = document.getElementById("places-grid");
@@ -386,9 +596,14 @@ lugares.forEach(l => {
 });
 
 function match(l) {
+  // Filtro 1: estilo (obrigatório — sem flexibilidade)
   if (answers[0] && !l.estilo.includes(answers[0])) return false;
+  // Filtro 2: orçamento (obrigatório — sem flexibilidade)
   if (answers[1] && !l.orcamento.includes(answers[1])) return false;
-  if (answers[3] && answers[3]!=="tanto" && !l.regiao.includes(answers[3]) && !l.regiao.includes("tanto")) return false;
+  // Filtro 3: região (obrigatório quando não for "tanto faz")
+  if (answers[3] && answers[3] !== "tanto") {
+    if (!l.regiao.includes(answers[3])) return false;
+  }
   return true;
 }
 
