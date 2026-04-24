@@ -3,753 +3,392 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Onde Ir em Casal — Encontre o date perfeito em Brasília</title>
-<meta name="description" content="Descubra o date perfeito para vocês em Brasília, Pirenópolis e Chapada dos Veadeiros. Curadoria exclusiva do @ocasalvintte.">
+<title>Onde Ir em Casal — Curadoria exclusiva para casais de Brasília</title>
+<meta name="description" content="Descubra o date perfeito em Brasília, Pirenópolis e Chapada dos Veadeiros. Lugares visitados e aprovados pelo @ocasalvintte com cupons exclusivos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --rose: #C9637A;
-    --rose-light: #F5E8EC;
-    --rose-dark: #8B3A4E;
-    --cream: #FAF7F2;
-    --warm: #F0EAE0;
-    --dark: #1C1410;
-    --mid: #6B5B52;
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'DM Sans', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-body);
-    background: var(--cream);
-    color: var(--dark);
-    min-height: 100vh;
-  }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    position: relative;
-    background: var(--dark);
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 40%, #3D1F28 0%, var(--dark) 70%);
-  }
-
-  .hero-petals {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .petal {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--rose);
-    opacity: 0.15;
-    animation: float linear infinite;
-  }
-
-  @keyframes float {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.15; }
-    90% { opacity: 0.15; }
-    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-  }
-
-  .hero-content { position: relative; z-index: 1; max-width: 600px; }
-
-  .hero-tag {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--rose);
-    border: 1px solid rgba(201,99,122,0.4);
-    padding: 6px 16px;
-    border-radius: 100px;
-    margin-bottom: 2rem;
-    animation: fadeUp 0.8s ease both;
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.8rem, 8vw, 5rem);
-    font-weight: 400;
-    color: #FAF7F2;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    animation: fadeUp 0.8s 0.1s ease both;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--rose);
-  }
-
-  .hero-sub {
-    font-size: 16px;
-    color: rgba(250,247,242,0.6);
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-    animation: fadeUp 0.8s 0.2s ease both;
-  }
-
-  .hero-cta {
-    display: inline-block;
-    background: var(--rose);
-    color: #FAF7F2;
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 500;
-    padding: 16px 36px;
-    border-radius: 100px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-    animation: fadeUp 0.8s 0.3s ease both;
-  }
-
-  .hero-cta:hover { background: var(--rose-dark); transform: translateY(-2px); }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(250,247,242,0.3);
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: bounce 2s ease infinite;
-    z-index: 1;
-  }
-
-  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* FORM SECTION */
-  .form-section {
-    padding: 5rem 1.5rem;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--rose);
-    margin-bottom: 0.75rem;
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 400;
-    color: var(--dark);
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-  }
-
-  .section-sub {
-    font-size: 15px;
-    color: var(--mid);
-    margin-bottom: 3rem;
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* STEPS */
-  .step { display: none; }
-  .step.active { display: block; }
-
-  .progress-bar {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 2.5rem;
-  }
-
-  .progress-seg {
-    flex: 1;
-    height: 3px;
-    background: var(--warm);
-    border-radius: 2px;
-    transition: background 0.3s;
-  }
-
-  .progress-seg.done { background: var(--rose); }
-  .progress-seg.active { background: var(--rose); opacity: 0.5; }
-
-  .step-q {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin-bottom: 0.5rem;
-  }
-
-  .step-title {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: var(--dark);
-    margin-bottom: 1.5rem;
-  }
-
-  .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
-
-  .opt {
-    background: #fff;
-    border: 1.5px solid #E8E0D8;
-    border-radius: 12px;
-    padding: 16px 20px;
-    font-size: 15px;
-    color: var(--dark);
-    cursor: pointer;
-    text-align: left;
-    font-family: var(--font-body);
-    transition: border-color 0.15s, background 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .opt:hover { border-color: var(--rose); background: var(--rose-light); }
-  .opt.selected { border-color: var(--rose); background: var(--rose-light); color: var(--rose-dark); font-weight: 500; }
-
-  .next-btn {
-    width: 100%;
-    padding: 16px;
-    background: var(--rose);
-    color: #fff;
-    border: none;
-    border-radius: 100px;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: var(--font-body);
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-  }
-
-  .next-btn:hover:not(:disabled) { background: var(--rose-dark); transform: translateY(-1px); }
-  .next-btn:disabled { opacity: 0.35; cursor: not-allowed; }
-
-  /* SPIN */
-  .spin-wrap {
-    text-align: center;
-    padding: 4rem 0;
-  }
-
-  .spin-ring {
-    width: 80px;
-    height: 80px;
-    border: 3px solid var(--warm);
-    border-top-color: var(--rose);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 2rem;
-  }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .spin-title {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-  }
-
-  .spin-sub { font-size: 14px; color: var(--mid); font-weight: 300; }
-
-  /* RESULT CARD */
-  .result-card {
-    background: #fff;
-    border: 1px solid #E8E0D8;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-
-  .result-top {
-    background: var(--dark);
-    padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .result-emoji { font-size: 36px; }
-
-  .result-name {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    color: #FAF7F2;
-    font-weight: 400;
-  }
-
-  .result-type {
-    font-size: 12px;
-    color: var(--rose);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  .result-body { padding: 1.5rem; }
-
-  .result-row {
-    display: flex;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid #F0EAE0;
-    align-items: flex-start;
-    font-size: 14px;
-  }
-
-  .result-row:last-child { border-bottom: none; }
-
-  .result-label {
-    min-width: 90px;
-    color: var(--mid);
-    font-weight: 300;
-    flex-shrink: 0;
-  }
-
-  .result-value { color: var(--dark); flex: 1; line-height: 1.5; }
-
-  .cupom-pill {
-    display: inline-block;
-    background: #EEF7EE;
-    color: #2D6A2D;
-    border-radius: 100px;
-    padding: 4px 14px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1px;
-  }
-
-  .exp-block {
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    margin-top: 1rem;
-  }
-
-  .exp-label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--rose);
-    margin-bottom: 6px;
-  }
-
-  .exp-text { font-size: 14px; color: var(--mid); line-height: 1.7; font-weight: 300; }
-
-  .result-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 1.5rem; }
-
-  .btn-restart {
-    width: 100%;
-    padding: 14px;
-    background: transparent;
-    border: 1.5px solid #E8E0D8;
-    border-radius: 100px;
-    font-size: 14px;
-    color: var(--mid);
-    font-family: var(--font-body);
-    cursor: pointer;
-    transition: border-color 0.2s;
-  }
-
-  .btn-restart:hover { border-color: var(--rose); color: var(--rose); }
-
-  /* ABOUT */
-  .about-section {
-    background: var(--dark);
-    padding: 5rem 1.5rem;
-    text-align: center;
-  }
-
-  .about-inner { max-width: 560px; margin: 0 auto; }
-
-  .about-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: #FAF7F2;
-    font-weight: 400;
-    margin-bottom: 1rem;
-  }
-
-  .about-title em { font-style: italic; color: var(--rose); }
-
-  .about-text {
-    font-size: 15px;
-    color: rgba(250,247,242,0.6);
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
-
-  .about-link {
-    display: inline-block;
-    color: var(--rose);
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(201,99,122,0.4);
-    padding-bottom: 2px;
-    transition: border-color 0.2s;
-  }
-
-  .about-link:hover { border-color: var(--rose); }
-
-  /* FOOTER */
-  footer {
-    padding: 2rem 1.5rem;
-    text-align: center;
-    font-size: 12px;
-    color: var(--mid);
-    letter-spacing: 1px;
-  }
-
-  @media (max-width: 480px) {
-    .hero-title { font-size: 2.4rem; }
-    .form-section { padding: 3rem 1.25rem; }
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --wine: #5C1A2E; --wine-light: #8B2D47; --rose: #C9637A; --rose-light: #F5E8EC;
+  --cream: #FAF6F0; --warm-white: #FFFDF9; --navy: #1A2744; --navy-mid: #2D3F6B;
+  --text: #1C1410; --mid: #6B5B52; --border: #E8DDD5;
+  --font-display: 'Lora', serif; --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+body { font-family: var(--font-body); background: var(--warm-white); color: var(--text); overflow-x: hidden; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(26,39,68,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; color: #fff; font-weight: 600; text-decoration: none; }
+.nav-logo span { color: var(--rose); }
+.nav-actions { display: flex; gap: 12px; align-items: center; }
+.nav-link { color: rgba(255,255,255,0.7); font-size: 14px; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+.nav-link:hover { color: #fff; }
+.nav-cta { background: var(--rose); color: #fff; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 100px; text-decoration: none; transition: background 0.2s; font-family: var(--font-body); }
+.nav-cta:hover { background: var(--wine-light); }
+.hero { min-height: 100vh; background: linear-gradient(160deg, var(--navy) 0%, #2A1A2E 50%, #3D1220 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 1.5rem 5rem; position: relative; overflow: hidden; }
+.hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(201,99,122,0.15) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -60%); pointer-events: none; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 500; padding: 8px 18px; border-radius: 100px; margin-bottom: 2rem; animation: fadeUp 0.7s ease both; }
+.hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); }
+.hero-title { font-family: var(--font-display); font-size: clamp(2.8rem,7vw,5.5rem); color: #fff; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 700; animation: fadeUp 0.7s 0.1s ease both; }
+.hero-title em { font-style: italic; color: #E8C4AF; }
+.hero-sub { font-size: clamp(15px,2.5vw,18px); color: rgba(255,255,255,0.6); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.75; font-weight: 300; animation: fadeUp 0.7s 0.2s ease both; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.7s 0.3s ease both; }
+.btn-primary { background: var(--rose); color: #fff; font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: 100px; text-decoration: none; transition: background 0.2s, transform 0.15s; font-family: var(--font-body); display: inline-flex; align-items: center; gap: 8px; }
+.btn-primary:hover { background: var(--wine-light); transform: translateY(-2px); }
+.btn-secondary { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 16px; font-weight: 500; padding: 16px 32px; border-radius: 100px; text-decoration: none; transition: background 0.2s; font-family: var(--font-body); }
+.btn-secondary:hover { background: rgba(255,255,255,0.14); }
+.hero-stats { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); animation: fadeUp 0.7s 0.4s ease both; }
+.hero-stat { text-align: center; }
+.hero-stat-num { font-family: var(--font-display); font-size: 1.5rem; color: #fff; font-weight: 700; }
+.hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+.section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--rose); margin-bottom: 0.75rem; font-weight: 600; }
+.problem { background: var(--cream); padding: 6rem 1.5rem; display: flex; align-items: center; justify-content: center; }
+.problem-inner { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.problem-text h2 { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,2.8rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.5rem; }
+.problem-text p { font-size: 15px; color: var(--mid); line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+.problem-text strong { color: var(--navy); font-weight: 600; }
+.problem-card { background: #fff; border-radius: 20px; padding: 2rem; box-shadow: 0 20px 60px rgba(0,0,0,0.08); border: 1px solid var(--border); }
+.problem-card-title { font-family: var(--font-display); font-size: 1.1rem; color: var(--navy); margin-bottom: 1.5rem; font-style: italic; }
+.pain-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 1rem; }
+.pain-icon { width: 32px; height: 32px; border-radius: 8px; background: #FFF0F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+.pain-text { font-size: 14px; color: var(--mid); line-height: 1.5; padding-top: 6px; }
+.how { background: var(--navy); padding: 6rem 1.5rem; }
+.how-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.how-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); color: #fff; margin-bottom: 0.75rem; }
+.how-sub { font-size: 15px; color: rgba(255,255,255,0.5); margin-bottom: 4rem; font-weight: 300; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+.step-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; text-align: left; transition: background 0.2s; }
+.step-card:hover { background: rgba(255,255,255,0.08); }
+.step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--rose); color: #fff; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+.step-card h3 { font-family: var(--font-display); font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem; }
+.step-card p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; font-weight: 300; }
+.finder { background: var(--warm-white); padding: 6rem 1.5rem; }
+.finder-inner { max-width: 640px; margin: 0 auto; }
+.finder-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,2.8rem); color: var(--navy); margin-bottom: 0.75rem; }
+.finder-sub { font-size: 15px; color: var(--mid); margin-bottom: 3rem; font-weight: 300; line-height: 1.7; }
+.progress-bar { display: flex; gap: 8px; margin-bottom: 2.5rem; }
+.progress-seg { flex: 1; height: 3px; background: #E8DDD5; border-radius: 2px; transition: background 0.3s; }
+.progress-seg.done { background: var(--rose); }
+.progress-seg.active { background: var(--rose); opacity: 0.5; }
+.fstep { display: none; }
+.fstep.active { display: block; }
+.step-q { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; font-weight: 600; }
+.step-title { font-family: var(--font-display); font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem; }
+.options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
+.opt { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 16px 20px; font-size: 15px; color: var(--text); cursor: pointer; text-align: left; font-family: var(--font-body); transition: all 0.15s; }
+.opt:hover { border-color: var(--rose); background: var(--rose-light); }
+.opt.selected { border-color: var(--rose); background: var(--rose-light); color: var(--wine); font-weight: 600; }
+.next-btn { width: 100%; padding: 16px; background: var(--navy); color: #fff; border: none; border-radius: 100px; font-size: 15px; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: background 0.2s, transform 0.15s; }
+.next-btn:hover:not(:disabled) { background: var(--navy-mid); transform: translateY(-1px); }
+.next-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.spin-wrap { text-align: center; padding: 4rem 0; }
+.spin-ring { width: 72px; height: 72px; border: 3px solid #E8DDD5; border-top-color: var(--rose); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 2rem; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--navy); margin-bottom: 0.5rem; }
+.spin-sub { font-size: 14px; color: var(--mid); font-weight: 300; }
+.result-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+.result-top { background: var(--navy); padding: 1.5rem; display: flex; align-items: center; gap: 14px; }
+.result-emoji { font-size: 32px; }
+.result-name { font-family: var(--font-display); font-size: 1.3rem; color: #fff; font-weight: 600; }
+.result-type { font-size: 11px; color: var(--rose); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
+.result-body { padding: 1.5rem; }
+.result-row { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #F0EAE0; font-size: 14px; }
+.result-row:last-child { border-bottom: none; }
+.result-label { min-width: 90px; color: var(--mid); font-weight: 300; flex-shrink: 0; }
+.result-value { color: var(--text); flex: 1; line-height: 1.5; }
+.cupom-pill { display: inline-block; background: #EEF7EE; color: #1A5C1A; border-radius: 100px; padding: 4px 14px; font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+.exp-block { background: var(--cream); border-radius: 12px; padding: 1rem 1.25rem; margin-top: 1rem; }
+.exp-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--rose); margin-bottom: 6px; font-weight: 700; }
+.exp-text { font-size: 14px; color: var(--mid); line-height: 1.7; font-weight: 300; }
+.obs-text { font-size: 12px; color: var(--rose); font-style: italic; margin-top: 6px; }
+.btn-restart { width: 100%; padding: 14px; background: transparent; border: 1.5px solid var(--border); border-radius: 100px; font-size: 14px; color: var(--mid); font-family: var(--font-body); cursor: pointer; margin-top: 1rem; transition: all 0.2s; }
+.btn-restart:hover { border-color: var(--rose); color: var(--rose); }
+.places { background: var(--cream); padding: 6rem 1.5rem; }
+.places-inner { max-width: 1000px; margin: 0 auto; }
+.places-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,2.8rem); color: var(--navy); margin-bottom: 0.75rem; }
+.places-sub { font-size: 15px; color: var(--mid); margin-bottom: 3rem; font-weight: 300; }
+.places-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 16px; }
+.place-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; transition: box-shadow 0.2s, transform 0.2s; }
+.place-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.place-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+.place-card-emoji { font-size: 24px; }
+.place-card-name { font-family: var(--font-display); font-size: 1rem; color: var(--navy); font-weight: 600; }
+.place-card-type { font-size: 11px; color: var(--rose); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; margin-top: 2px; }
+.place-card-local { font-size: 13px; color: var(--mid); margin-bottom: 0.75rem; }
+.place-card-cupom { display: inline-block; background: #EEF7EE; color: #1A5C1A; border-radius: 100px; padding: 3px 12px; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+.about { background: var(--warm-white); padding: 6rem 1.5rem; }
+.about-inner { max-width: 800px; margin: 0 auto; }
+.about-card { background: var(--cream); border-radius: 24px; padding: 3rem; display: grid; grid-template-columns: 160px 1fr; gap: 3rem; align-items: center; }
+.about-photo { width: 160px; height: 160px; border-radius: 50%; background: linear-gradient(135deg,var(--rose-light),var(--cream)); display: flex; align-items: center; justify-content: center; font-size: 64px; flex-shrink: 0; border: 4px solid #fff; }
+.about-text h2 { font-family: var(--font-display); font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem; }
+.about-text p { font-size: 15px; color: var(--mid); line-height: 1.8; margin-bottom: 0.75rem; font-weight: 300; }
+.about-text strong { color: var(--navy); font-weight: 600; }
+.about-ig { display: inline-flex; align-items: center; gap: 6px; color: var(--rose); font-size: 14px; font-weight: 600; text-decoration: none; margin-top: 0.5rem; }
+.pricing { background: var(--cream); padding: 6rem 1.5rem; }
+.pricing-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.pricing-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,2.8rem); color: var(--navy); margin-bottom: 0.75rem; }
+.pricing-sub { font-size: 15px; color: var(--mid); margin-bottom: 3rem; font-weight: 300; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.pricing-card { background: #fff; border: 1.5px solid var(--border); border-radius: 20px; padding: 2rem; text-align: left; position: relative; }
+.pricing-card.featured { border-color: var(--rose); box-shadow: 0 0 0 4px rgba(201,99,122,0.1); }
+.pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--rose); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+.pricing-name { font-size: 13px; font-weight: 600; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+.pricing-price { font-family: var(--font-display); font-size: 2.5rem; color: var(--navy); font-weight: 700; line-height: 1; margin-bottom: 0.25rem; }
+.pricing-price span { font-size: 14px; color: var(--mid); font-weight: 400; font-family: var(--font-body); }
+.pricing-period { font-size: 13px; color: var(--mid); margin-bottom: 1.5rem; font-weight: 300; }
+.pricing-features { list-style: none; margin-bottom: 1.5rem; }
+.pricing-features li { display: flex; gap: 10px; font-size: 14px; color: var(--mid); padding: 6px 0; line-height: 1.4; }
+.pricing-features li::before { content: '✓'; color: var(--rose); font-weight: 700; flex-shrink: 0; }
+.pricing-features li.no::before { content: '✕'; color: #ccc; }
+.pricing-features li.no { color: #bbb; }
+.pricing-btn { width: 100%; padding: 14px; background: var(--navy); color: #fff; border: none; border-radius: 100px; font-size: 15px; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: background 0.2s; text-decoration: none; display: block; text-align: center; }
+.pricing-btn:hover { background: var(--navy-mid); }
+.pricing-btn.outline { background: transparent; border: 1.5px solid var(--border); color: var(--mid); }
+.pricing-btn.outline:hover { border-color: var(--navy); color: var(--navy); }
+.final-cta { background: linear-gradient(135deg,var(--navy) 0%,#3D1220 100%); padding: 6rem 1.5rem; text-align: center; }
+.final-cta h2 { font-family: var(--font-display); font-size: clamp(2rem,5vw,3.5rem); color: #fff; margin-bottom: 1rem; }
+.final-cta h2 em { font-style: italic; color: #E8C4AF; }
+.final-cta p { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; font-weight: 300; }
+footer { background: var(--navy); padding: 2rem 1.5rem; text-align: center; }
+footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 768px) {
+  nav { padding: 1rem; }
+  .problem-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .steps { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .about-card { grid-template-columns: 1fr; text-align: center; }
+  .about-photo { margin: 0 auto; }
+}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<nav>
+  <a href="#" class="nav-logo">onde ir em <span>casal</span></a>
+  <div class="nav-actions">
+    <a href="#finder" class="nav-link">Descobrir date</a>
+    <a href="#precos" class="nav-cta">Começar grátis</a>
+  </div>
+</nav>
+
 <section class="hero">
-  <div class="hero-petals" id="petals"></div>
-  <div class="hero-content">
-    <span class="hero-tag">@ocasalvintte apresenta</span>
-    <h1 class="hero-title">Onde ir<br>em <em>casal?</em></h1>
-    <p class="hero-sub">Curadoria exclusiva de lugares incríveis em Brasília, Pirenópolis e Chapada dos Veadeiros — com descontos que só vocês têm.</p>
-    <a href="#finder" class="hero-cta">Descobrir meu date →</a>
+  <div class="hero-glow"></div>
+  <div class="hero-badge"><span class="hero-badge-dot"></span> Feito por quem vive isso em Brasília</div>
+  <h1 class="hero-title">A rotina não precisa<br>acabar com a <em>magia.</em></h1>
+  <p class="hero-sub">Curadoria exclusiva de dates em Brasília, Pirenópolis e Chapada dos Veadeiros — lugares que visitamos e aprovamos, com cupons que só vocês têm.</p>
+  <div class="hero-actions">
+    <a href="#finder" class="btn-primary">Descobrir meu date →</a>
+    <a href="#como-funciona" class="btn-secondary">Como funciona</a>
   </div>
-  <div class="hero-scroll">↓ rolar</div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">212K</div><div class="hero-stat-label">seguidores</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">12+</div><div class="hero-stat-label">lugares visitados</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">aprovados por nós</div></div>
+  </div>
 </section>
 
-<!-- FINDER -->
-<section class="form-section" id="finder">
-  <p class="section-label">Curadoria personalizada</p>
-  <h2 class="section-title">Qual vai ser o date de vocês?</h2>
-  <p class="section-sub">Responda 4 perguntas rápidas e a gente encontra o lugar perfeito para o momento de vocês.</p>
-
-  <div class="progress-bar">
-    <div class="progress-seg active" id="seg0"></div>
-    <div class="progress-seg" id="seg1"></div>
-    <div class="progress-seg" id="seg2"></div>
-    <div class="progress-seg" id="seg3"></div>
-  </div>
-
-  <!-- Step 0 -->
-  <div class="step active" id="step-0">
-    <p class="step-q">Pergunta 1 de 4</p>
-    <h3 class="step-title">Que tipo de date vocês querem?</h3>
-    <div class="options">
-      <button class="opt" data-q="0" data-v="aventura">🌿 Natureza & Aventura</button>
-      <button class="opt" data-q="0" data-v="romantico">💕 Romântico & Íntimo</button>
-      <button class="opt" data-q="0" data-v="simples">☕ Simples & Aconchegante</button>
-      <button class="opt" data-q="0" data-v="sofisticado">🥂 Sofisticado & Especial</button>
+<section class="problem">
+  <div class="problem-inner">
+    <div class="problem-text">
+      <h2>O problema não é falta de amor. É falta de <em>ideia</em> na hora certa.</h2>
+      <p>A vida é corrida. Trabalho, responsabilidades, compromissos...</p>
+      <p>E sem perceber, os momentos a dois vão ficando pra depois.</p>
+      <p><strong>Não porque falta amor. Mas porque falta inspiração no meio da rotina.</strong></p>
     </div>
-    <button class="next-btn" id="next-0" disabled onclick="nextStep(0)">Continuar</button>
-  </div>
-
-  <!-- Step 1 -->
-  <div class="step" id="step-1">
-    <p class="step-q">Pergunta 2 de 4</p>
-    <h3 class="step-title">Qual o orçamento para o date?</h3>
-    <div class="options">
-      <button class="opt" data-q="1" data-v="ate150">Até R$150</button>
-      <button class="opt" data-q="1" data-v="150a400">R$150 a R$400</button>
-      <button class="opt" data-q="1" data-v="400a700">R$400 a R$700</button>
-      <button class="opt" data-q="1" data-v="acima700">Acima de R$700</button>
-    </div>
-    <button class="next-btn" id="next-1" disabled onclick="nextStep(1)">Continuar</button>
-  </div>
-
-  <!-- Step 2 -->
-  <div class="step" id="step-2">
-    <p class="step-q">Pergunta 3 de 4</p>
-    <h3 class="step-title">Quando querem ir?</h3>
-    <div class="options">
-      <button class="opt" data-q="2" data-v="semana">Durante a semana</button>
-      <button class="opt" data-q="2" data-v="fds">Final de semana</button>
-    </div>
-    <button class="next-btn" id="next-2" disabled onclick="nextStep(2)">Continuar</button>
-  </div>
-
-  <!-- Step 3 -->
-  <div class="step" id="step-3">
-    <p class="step-q">Pergunta 4 de 4</p>
-    <h3 class="step-title">Onde preferem ir?</h3>
-    <div class="options">
-      <button class="opt" data-q="3" data-v="brasilia">Brasília (cidade)</button>
-      <button class="opt" data-q="3" data-v="entorno">Entorno do DF</button>
-      <button class="opt" data-q="3" data-v="pirenopolis">Pirenópolis - GO</button>
-      <button class="opt" data-q="3" data-v="chapada">Chapada dos Veadeiros - GO</button>
-      <button class="opt" data-q="3" data-v="tanto">Tanto faz</button>
-    </div>
-    <button class="next-btn" id="next-3" disabled onclick="nextStep(3)">Descobrir meu date!</button>
-  </div>
-
-  <!-- Spin -->
-  <div class="step" id="step-spin">
-    <div class="spin-wrap">
-      <div class="spin-ring"></div>
-      <h3 class="spin-title">Girando a roleta...</h3>
-      <p class="spin-sub">Encontrando o place perfeito para vocês</p>
-    </div>
-  </div>
-
-  <!-- Result -->
-  <div class="step" id="step-result">
-    <p class="section-label" style="margin-bottom:1rem;">Encontramos o place perfeito! 🎉</p>
-    <div class="result-card" id="result-card"></div>
-    <div class="result-actions">
-      <button class="btn-restart" onclick="restart()">Girar novamente</button>
+    <div class="problem-card">
+      <p class="problem-card-title">"Vamos sair hoje?" — "Mas pra onde?"</p>
+      <div class="pain-item"><div class="pain-icon">😮‍💨</div><div class="pain-text">Ficam horas no Google sem decidir nada</div></div>
+      <div class="pain-item"><div class="pain-icon">🤷</div><div class="pain-text">Vão sempre nos mesmos lugares por falta de opção</div></div>
+      <div class="pain-item"><div class="pain-icon">💸</div><div class="pain-text">Pagam mais caro sem saber dos descontos disponíveis</div></div>
+      <div class="pain-item"><div class="pain-icon">📱</div><div class="pain-text">Seguem perfis genéricos que não conhecem os lugares de verdade</div></div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about-section">
+<section class="how" id="como-funciona">
+  <div class="how-inner">
+    <p class="section-label">Simples de começar</p>
+    <h2 class="how-title">Três passos para o date perfeito</h2>
+    <p class="how-sub">Sem pesquisa, sem dúvida, sem enrolação.</p>
+    <div class="steps">
+      <div class="step-card"><div class="step-num">1</div><h3>Responda 4 perguntas</h3><p>Tipo de date, orçamento, quando e onde. Leva menos de 1 minuto.</p></div>
+      <div class="step-card"><div class="step-num">2</div><h3>A roleta sorteia o lugar</h3><p>Nosso sistema filtra os lugares que combinam com vocês e sorteia um.</p></div>
+      <div class="step-card"><div class="step-num">3</div><h3>Usem o cupom exclusivo</h3><p>Cada lugar tem desconto exclusivo para quem vem pelo @ocasalvintte.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="finder" id="finder">
+  <div class="finder-inner">
+    <p class="section-label">Curadoria personalizada</p>
+    <h2 class="finder-title">Qual vai ser o date de vocês?</h2>
+    <p class="finder-sub">Responda 4 perguntas e descubra o lugar perfeito para o momento de vocês.</p>
+    <div class="progress-bar">
+      <div class="progress-seg active" id="seg0"></div>
+      <div class="progress-seg" id="seg1"></div>
+      <div class="progress-seg" id="seg2"></div>
+      <div class="progress-seg" id="seg3"></div>
+    </div>
+    <div class="fstep active" id="fstep-0">
+      <p class="step-q">Pergunta 1 de 4</p><h3 class="step-title">Que tipo de date vocês querem?</h3>
+      <div class="options">
+        <button class="opt" data-q="0" data-v="aventura">🌿 Natureza & Aventura</button>
+        <button class="opt" data-q="0" data-v="romantico">💕 Romântico & Íntimo</button>
+        <button class="opt" data-q="0" data-v="simples">☕ Simples & Aconchegante</button>
+        <button class="opt" data-q="0" data-v="sofisticado">🥂 Sofisticado & Especial</button>
+      </div>
+      <button class="next-btn" id="next-0" disabled onclick="nextStep(0)">Continuar</button>
+    </div>
+    <div class="fstep" id="fstep-1">
+      <p class="step-q">Pergunta 2 de 4</p><h3 class="step-title">Qual o orçamento para o date?</h3>
+      <div class="options">
+        <button class="opt" data-q="1" data-v="ate150">Até R$150</button>
+        <button class="opt" data-q="1" data-v="150a400">R$150 a R$400</button>
+        <button class="opt" data-q="1" data-v="400a700">R$400 a R$700</button>
+        <button class="opt" data-q="1" data-v="acima700">Acima de R$700</button>
+      </div>
+      <button class="next-btn" id="next-1" disabled onclick="nextStep(1)">Continuar</button>
+    </div>
+    <div class="fstep" id="fstep-2">
+      <p class="step-q">Pergunta 3 de 4</p><h3 class="step-title">Quando querem ir?</h3>
+      <div class="options">
+        <button class="opt" data-q="2" data-v="semana">Durante a semana</button>
+        <button class="opt" data-q="2" data-v="fds">Final de semana</button>
+      </div>
+      <button class="next-btn" id="next-2" disabled onclick="nextStep(2)">Continuar</button>
+    </div>
+    <div class="fstep" id="fstep-3">
+      <p class="step-q">Pergunta 4 de 4</p><h3 class="step-title">Onde preferem ir?</h3>
+      <div class="options">
+        <button class="opt" data-q="3" data-v="brasilia">Brasília (cidade)</button>
+        <button class="opt" data-q="3" data-v="entorno">Entorno do DF</button>
+        <button class="opt" data-q="3" data-v="pirenopolis">Pirenópolis - GO</button>
+        <button class="opt" data-q="3" data-v="chapada">Chapada dos Veadeiros - GO</button>
+        <button class="opt" data-q="3" data-v="tanto">Tanto faz</button>
+      </div>
+      <button class="next-btn" id="next-3" disabled onclick="nextStep(3)">Descobrir meu date!</button>
+    </div>
+    <div class="fstep" id="fstep-spin">
+      <div class="spin-wrap"><div class="spin-ring"></div><h3 class="spin-title">Girando a roleta...</h3><p class="spin-sub">Encontrando o place perfeito para vocês</p></div>
+    </div>
+    <div class="fstep" id="fstep-result">
+      <p class="section-label" style="margin-bottom:1rem;">Encontramos o place perfeito! 🎉</p>
+      <div class="result-card" id="result-card"></div>
+      <button class="btn-restart" onclick="restart()">↺ Girar novamente</button>
+    </div>
+  </div>
+</section>
+
+<section class="places">
+  <div class="places-inner">
+    <p class="section-label">Nossos parceiros</p>
+    <h2 class="places-title">Lugares que visitamos e aprovamos</h2>
+    <p class="places-sub">Cada lugar dessa lista foi visitado pessoalmente por nós. Só recomendamos o que vivemos.</p>
+    <div class="places-grid" id="places-grid"></div>
+  </div>
+</section>
+
+<section class="about">
   <div class="about-inner">
-    <h2 class="about-title">Feito com <em>amor</em><br>pelo @ocasalvintte</h2>
-    <p class="about-text">Somos um casal de Brasília que visita, testa e aprova cada lugar antes de recomendar. Aqui você encontra só o que a gente viveu de verdade — com cupons exclusivos que criamos para vocês.</p>
-    <a href="https://instagram.com/ocasalvintte" target="_blank" class="about-link">@ocasalvintte no Instagram →</a>
+    <p class="section-label">Quem somos</p>
+    <div class="about-card">
+      <div class="about-photo">💑</div>
+      <div class="about-text">
+        <h2>Criado por quem vive isso todos os dias</h2>
+        <p>Somos o <strong>@ocasalvintte</strong>, um casal de Brasília que cria conteúdo sobre relacionamentos saudáveis para mais de <strong>212 mil seguidores</strong>.</p>
+        <p>Visitamos cada lugar pessoalmente antes de recomendar. Aqui você não vai encontrar sugestões genéricas — só o que vivemos de verdade, com cupons que negociamos exclusivamente para vocês.</p>
+        <p><strong>Melhore seu relacionamento na prática.</strong></p>
+        <a href="https://instagram.com/ocasalvintte" target="_blank" class="about-ig">→ @ocasalvintte no Instagram</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2025 ondeiremcasal.com · feito com ♥ pelo @ocasalvintte</p>
-</footer>
+<section class="pricing" id="precos">
+  <div class="pricing-inner">
+    <p class="section-label">Planos</p>
+    <h2 class="pricing-title">Comece grátis. Evolua no seu tempo.</h2>
+    <p class="pricing-sub">Teste grátis por 7 dias. Cancele quando quiser.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Melhor custo-benefício</div>
+        <div class="pricing-name">Anual</div>
+        <div class="pricing-price">R$8<span>,25/mês</span></div>
+        <div class="pricing-period">R$97,00/ano — pagamento único</div>
+        <ul class="pricing-features">
+          <li>Acesso ilimitado a todos os lugares</li>
+          <li>Sorteios ilimitados</li>
+          <li>Cupons exclusivos sempre atualizados</li>
+          <li>Novos lugares em primeira mão</li>
+          <li>Suporte prioritário</li>
+        </ul>
+        <a href="#" class="pricing-btn">Começar agora →</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Mensal</div>
+        <div class="pricing-price">R$14<span>,90/mês</span></div>
+        <div class="pricing-period">Cobrança recorrente. Cancele quando quiser.</div>
+        <ul class="pricing-features">
+          <li>Acesso ilimitado a todos os lugares</li>
+          <li>Sorteios ilimitados</li>
+          <li>Cupons exclusivos sempre atualizados</li>
+          <li>Novos lugares em primeira mão</li>
+          <li class="no">Suporte prioritário</li>
+        </ul>
+        <a href="#" class="pricing-btn">Começar agora →</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Grátis</div>
+        <div class="pricing-price">R$0<span>/mês</span></div>
+        <div class="pricing-period">Para experimentar</div>
+        <ul class="pricing-features">
+          <li>3 sorteios por mês</li>
+          <li>Acesso a 5 lugares</li>
+          <li class="no">Cupons exclusivos</li>
+          <li class="no">Novos lugares em primeira mão</li>
+          <li class="no">Suporte prioritário</li>
+        </ul>
+        <a href="#finder" class="pricing-btn outline">Testar grátis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <h2>Prontos para o próximo<br><em>date inesquecível?</em></h2>
+  <p>Mais de 12 lugares esperando por vocês. Com desconto exclusivo.</p>
+  <a href="#finder" class="btn-primary">Descobrir meu date agora →</a>
+</section>
+
+<footer><p>© 2025 ondeiremcasal.com · feito com ♥ pelo @ocasalvintte · Brasília, DF</p></footer>
 
 <script>
 const answers = {};
-
-
 const lugares = [
-  {
-    nome: "Casa da Colina",
-    emoji: "🏡",
-    tipo: "🌿 Natureza & Aventura",
-    local: "Brazlândia, Brasília - DF",
-    estilo: ["aventura"],
-    orcamento: ["400a700","acima700"],
-    regiao: ["entorno","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Soberano/Apollo - Bangalô: R$962/diária",
-    contato: "(61) 98286-6251",
-    cupom: "CASALVINTTE",
-    beneficio: "1 diária = 1 prato principal grátis | Mais de 1 diária = 25% na 2ª diária de menor valor",
-    experiencia: "Chalé em meio à natureza, muito aconchegante. Ideal para casais que querem desacelerar. Café da manhã completo incluso, passeio a cavalo e jacuzzi.",
-    obs: ""
-  },
-  {
-    nome: "Motel Insides",
-    emoji: "💕",
-    tipo: "💕 Romântico & Íntimo",
-    local: "CSG 10 Lotes 10 e 11 - Taguatinga, Brasília - DF",
-    estilo: ["romantico","simples"],
-    orcamento: ["ate150","150a400"],
-    regiao: ["brasilia","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Loft Duplex: R$289 | Loft: R$279 | Inside: R$389",
-    contato: "(61) 3356-7100",
-    cupom: "CASAL20",
-    beneficio: "20% de desconto em reservas pelo site ou app",
-    experiencia: "Lugar bem estruturado, com várias opções de suítes e ambientes preparados para criar um momento especial. Boa opção para privacidade, conforto e uma experiência diferente da rotina.",
-    obs: ""
-  },
-  {
-    nome: "Chapada Indaiá",
-    emoji: "🌊",
-    tipo: "🌿 Natureza & Aventura",
-    local: "Parque Ecológico - Formosa, GO",
-    estilo: ["aventura"],
-    orcamento: ["ate150","150a400"],
-    regiao: ["chapada","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Entrada cachoeiras: R$40/pessoa | Diária: R$314",
-    contato: "chapadaindaia.com.br",
-    cupom: "CASAL20",
-    beneficio: "20% de desconto em reservas pelo site ou app",
-    experiencia: "Ecoparque com várias cachoeiras, trilha em meio à natureza e hospedagens aconchegantes dentro do próprio espaço. Mistura aventura + descanso — da trilha ao chalé.",
-    obs: ""
-  },
-  {
-    nome: "Mambaí Adventure",
-    emoji: "🧗",
-    tipo: "🌿 Natureza & Aventura",
-    local: "Mambaí - GO",
-    estilo: ["aventura"],
-    orcamento: ["150a400","400a700"],
-    regiao: ["chapada","entorno","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Pacotes a partir de R$355/pessoa | Rapel e tirolesa contratados à parte",
-    contato: "(62) 99978-5979",
-    cupom: "CASALVINTTE",
-    beneficio: "10% de desconto nos pacotes",
-    experiencia: "Experiência completa com cachoeiras, cavernas, trilhas e atividades como rapel e tirolesa. Perfeito para casais que querem criar memórias diferentes e viver momentos mais intensos.",
-    obs: ""
-  },
-  {
-    nome: "Cabanas Mirante do Cerrado",
-    emoji: "🌿",
-    tipo: "💕 Romântico & Íntimo",
-    local: "Jardim Botânico / Altiplano Leste - Brasília, DF",
-    estilo: ["romantico","sofisticado"],
-    orcamento: ["400a700","acima700"],
-    regiao: ["brasilia","entorno","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Diárias a partir de R$900 (varia conforme cabana e data)",
-    contato: "(61) 98538-3944",
-    cupom: "CASAL20",
-    beneficio: "10% de desconto nas reservas",
-    experiencia: "Cabanas super privativas com vista incrível do cerrado. Opções com hidromassagem, piscina e ambiente totalmente pensado para relaxar. Ideal para datas especiais ou sair da rotina.",
-    obs: ""
-  },
-  {
-    nome: "Ticiana Werner Restaurante & Wine Bar",
-    emoji: "🍷",
-    tipo: "🥂 Sofisticado & Especial",
-    local: "Asa Sul - Brasília, DF",
-    estilo: ["sofisticado","romantico"],
-    orcamento: ["400a700","acima700"],
-    regiao: ["brasilia","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Jantar romântico: R$400/casal + R$130 taças personalizadas",
-    contato: "(61) 98263-6847 (WhatsApp) | (61) 3226-9947",
-    cupom: "",
-    beneficio: "Jantar em etapas com música ao vivo e lembranças do casal ao final",
-    experiencia: "Um dos lugares mais completos para um date em Brasília. Jantar em etapas: entrada (tábua de frios ou antepastos), prato principal (risotos e carnes) e sobremesas. Música ao vivo e lembranças do casal ao final.",
-    obs: "Benefício especial de março: 1 espumante 1913 Brut de brinde"
-  },
-  {
-    nome: "Chalé Sunshine",
-    emoji: "☀️",
-    tipo: "💕 Romântico & Íntimo",
-    local: "Lago Norte - Brasília, DF",
-    estilo: ["romantico","simples"],
-    orcamento: ["150a400","400a700"],
-    regiao: ["brasilia","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Diárias entre R$510 e R$560",
-    contato: "(61) 99216-9881",
-    cupom: "CASAL20",
-    beneficio: "10% de desconto nas reservas",
-    experiencia: "Vista incrível para o Lago Paranoá. Ambiente super aconchegante e privativo. Conta com jacuzzi, área externa para relaxar e estrutura completa para aproveitar sem precisar sair.",
-    obs: ""
-  },
-  {
-    nome: "Pousada Sabai",
-    emoji: "✨",
-    tipo: "🥂 Sofisticado & Especial",
-    local: "Vila de São Jorge - Alto Paraíso de Goiás, GO",
-    estilo: ["sofisticado","romantico"],
-    orcamento: ["400a700","acima700"],
-    regiao: ["chapada","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Diárias a partir de R$650 (varia conforme suíte e data)",
-    contato: "(61) 99138-7147",
-    cupom: "SABAI10",
-    beneficio: "10% de desconto via link exclusivo",
-    experiencia: "Estrutura incrível com vista para o cerrado, piscina de borda infinita, opções com hidromassagem e ambientes sofisticados e aconchegantes. Ideal para relaxar e viver um momento exclusivo.",
-    obs: "Desconto aplicado pelo link deles"
-  },
-  {
-    nome: "Piri Cabanas",
-    emoji: "🔥",
-    tipo: "💕 Romântico & Íntimo",
-    local: "Pirenópolis - GO",
-    estilo: ["romantico","aventura"],
-    orcamento: ["400a700","acima700"],
-    regiao: ["pirenopolis","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Diárias a partir de R$900 (varia conforme cabana e data)",
-    contato: "(62) 99691-2338",
-    cupom: "casalvintte",
-    beneficio: "Benefícios exclusivos ao reservar",
-    experiencia: "Cabanas super privativas com ofurô, lareira e vista incrível do pôr do sol. Clima aconchegante e romântico. Perfeito para um final de semana só de vocês, sem precisar sair do lugar.",
-    obs: "Link: wa.me/5562996912338"
-  },
-  {
-    nome: "Cabana Valley",
-    emoji: "🏕️",
-    tipo: "💕 Romântico & Íntimo",
-    local: "Brasília / Entorno - DF",
-    estilo: ["romantico"],
-    orcamento: ["acima700"],
-    regiao: ["brasilia","entorno","tanto"],
-    periodo: ["semana","fds"],
-    valores: "R$1.300,00 a diária",
-    contato: "(61) 99887-8220",
-    cupom: "casalvintte",
-    beneficio: "Benefícios exclusivos — Decoração Instante a Dois (decoração romântica na cama do chalé)",
-    experiencia: "Decoração Instante a Dois — decoração romântica na cama do chalé. Um ambiente preparado para criar um momento íntimo e inesquecível para o casal.",
-    obs: ""
-  },
-  {
-    nome: "Café Ducentre",
-    emoji: "☕",
-    tipo: "☕ Simples & Aconchegante",
-    local: "Brasília - DF",
-    estilo: ["simples"],
-    orcamento: ["ate150","150a400"],
-    regiao: ["brasilia","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Em média entre R$35 a R$65",
-    contato: "(61) 99687-1247",
-    cupom: "",
-    beneficio: "10% de desconto em consumação acima de R$60 na 1ª visita",
-    experiencia: "Estrutura super temática, parece que você está realmente em Paris, com um atendimento sensacional, além de cada pedido ser melhor que o outro.",
-    obs: "Desconto apenas na primeira visita"
-  },
-  {
-    nome: "Conquistando o SIM",
-    emoji: "💍",
-    tipo: "🎉 Agitado & Divertido",
-    local: "Entrega para todo o Brasil",
-    estilo: ["sofisticado","romantico"],
-    orcamento: ["ate150","150a400"],
-    regiao: ["brasilia","entorno","pirenopolis","chapada","tanto"],
-    periodo: ["semana","fds"],
-    valores: "Kits entre R$95 a R$180",
-    contato: "(62) 9 9939-1847",
-    cupom: "",
-    beneficio: "15% de desconto em Kits Monte Você Mesmo e pedidos de casamento",
-    experiencia: "Kits Monte Você Mesmo e pedidos de casamento personalizados. Entrega para todo o Brasil.",
-    obs: ""
-  },
+  {nome:"Casa da Colina",emoji:"🏡",tipo:"🌿 Natureza & Aventura",local:"Brazlândia, Brasília - DF",estilo:["aventura"],orcamento:["400a700","acima700"],regiao:["entorno","tanto"],valores:"Bangalô a partir de R$962/diária",contato:"(61) 98286-6251",cupom:"CASALVINTTE",beneficio:"1 diária = 1 prato principal grátis | Mais de 1 diária = 25% na 2ª diária",experiencia:"Chalé em meio à natureza com café da manhã completo incluso, passeio a cavalo e jacuzzi. Aconchegante e ideal para desacelerar juntos.",obs:""},
+  {nome:"Motel Insides",emoji:"💕",tipo:"💕 Romântico & Íntimo",local:"Taguatinga, Brasília - DF",estilo:["romantico","simples"],orcamento:["ate150","150a400"],regiao:["brasilia","tanto"],valores:"A partir de R$279",contato:"(61) 3356-7100",cupom:"CASAL20",beneficio:"20% de desconto em reservas pelo site ou app",experiencia:"Várias opções de suítes preparadas para criar um momento especial. Privacidade, conforto e experiência diferente da rotina.",obs:""},
+  {nome:"Chapada Indaiá",emoji:"🌊",tipo:"🌿 Natureza & Aventura",local:"Formosa - GO",estilo:["aventura"],orcamento:["ate150","150a400"],regiao:["chapada","tanto"],valores:"Entrada: R$40/pessoa | Diária: R$314",contato:"chapadaindaia.com.br",cupom:"CASAL20",beneficio:"20% de desconto no site ou app",experiencia:"Ecoparque com cachoeiras, trilhas e hospedagens aconchegantes. Mistura aventura e descanso em um só lugar.",obs:""},
+  {nome:"Mambaí Adventure",emoji:"🧗",tipo:"🌿 Natureza & Aventura",local:"Mambaí - GO",estilo:["aventura"],orcamento:["150a400","400a700"],regiao:["chapada","entorno","tanto"],valores:"Pacotes a partir de R$355/pessoa",contato:"(62) 99978-5979",cupom:"CASALVINTTE",beneficio:"10% de desconto nos pacotes",experiencia:"Cachoeiras, cavernas, trilhas, rapel e tirolesa. Para casais que querem criar memórias diferentes e viver momentos intensos juntos.",obs:""},
+  {nome:"Cabanas Mirante do Cerrado",emoji:"🌿",tipo:"💕 Romântico & Íntimo",local:"Jardim Botânico, Brasília - DF",estilo:["romantico","sofisticado"],orcamento:["400a700","acima700"],regiao:["brasilia","entorno","tanto"],valores:"A partir de R$900/diária",contato:"(61) 98538-3944",cupom:"CASAL20",beneficio:"10% de desconto nas reservas",experiencia:"Cabanas privativas com vista incrível do cerrado, hidromassagem e piscina. Ambiente totalmente pensado para relaxar juntos.",obs:""},
+  {nome:"Ticiana Werner Wine Bar",emoji:"🍷",tipo:"🥂 Sofisticado & Especial",local:"Asa Sul, Brasília - DF",estilo:["sofisticado","romantico"],orcamento:["400a700","acima700"],regiao:["brasilia","tanto"],valores:"R$400/casal + R$130 taças personalizadas",contato:"(61) 98263-6847 (WhatsApp)",cupom:"",beneficio:"Jantar em etapas com música ao vivo e lembranças do casal",experiencia:"Jantar completo com entrada, prato principal e sobremesas. Música ao vivo e ambiente totalmente pensado para casais.",obs:"Benefício especial de março: 1 espumante 1913 Brut"},
+  {nome:"Chalé Sunshine",emoji:"☀️",tipo:"💕 Romântico & Íntimo",local:"Lago Norte, Brasília - DF",estilo:["romantico","simples"],orcamento:["150a400","400a700"],regiao:["brasilia","tanto"],valores:"R$510 a R$560/diária",contato:"(61) 99216-9881",cupom:"CASAL20",beneficio:"10% de desconto nas reservas",experiencia:"Vista incrível para o Lago Paranoá, jacuzzi e área externa para relaxar. Estrutura completa para aproveitar sem precisar sair.",obs:""},
+  {nome:"Pousada Sabai",emoji:"✨",tipo:"🥂 Sofisticado & Especial",local:"Alto Paraíso de Goiás - GO",estilo:["sofisticado","romantico"],orcamento:["400a700","acima700"],regiao:["chapada","tanto"],valores:"A partir de R$650/diária",contato:"(61) 99138-7147",cupom:"SABAI10",beneficio:"10% de desconto via link exclusivo",experiencia:"Piscina de borda infinita, hidromassagem e ambientes sofisticados com vista para o cerrado. Exclusivo e inesquecível.",obs:"Desconto aplicado pelo link deles"},
+  {nome:"Piri Cabanas",emoji:"🔥",tipo:"💕 Romântico & Íntimo",local:"Pirenópolis - GO",estilo:["romantico","aventura"],orcamento:["400a700","acima700"],regiao:["pirenopolis","tanto"],valores:"A partir de R$900/diária",contato:"(62) 99691-2338",cupom:"casalvintte",beneficio:"Benefícios exclusivos ao reservar",experiencia:"Cabanas com ofurô, lareira e vista do pôr do sol. Clima aconchegante e romântico para um final de semana só de vocês.",obs:""},
+  {nome:"Cabana Valley",emoji:"🏕️",tipo:"💕 Romântico & Íntimo",local:"Brasília / Entorno - DF",estilo:["romantico"],orcamento:["acima700"],regiao:["brasilia","entorno","tanto"],valores:"R$1.300,00/diária",contato:"(61) 99887-8220",cupom:"casalvintte",beneficio:"Decoração Instante a Dois — decoração romântica na cama do chalé",experiencia:"Ambiente preparado para criar um momento íntimo e inesquecível. Decoração romântica exclusiva no chalé.",obs:""},
+  {nome:"Café Ducentre",emoji:"☕",tipo:"☕ Simples & Aconchegante",local:"Brasília - DF",estilo:["simples"],orcamento:["ate150","150a400"],regiao:["brasilia","tanto"],valores:"Em média R$35 a R$65",contato:"(61) 99687-1247",cupom:"",beneficio:"10% de desconto em consumação acima de R$60 na 1ª visita",experiencia:"Estrutura super temática, parece que você está em Paris. Atendimento sensacional e cada pedido melhor que o outro.",obs:"Desconto apenas na primeira visita"},
+  {nome:"Conquistando o SIM",emoji:"💍",tipo:"🥂 Sofisticado & Especial",local:"Entrega para todo o Brasil",estilo:["sofisticado","romantico"],orcamento:["ate150","150a400"],regiao:["brasilia","entorno","pirenopolis","chapada","tanto"],valores:"Kits entre R$95 a R$180",contato:"(62) 9 9939-1847",cupom:"",beneficio:"15% de desconto em Kits Monte Você Mesmo e pedidos de casamento",experiencia:"Kits Monte Você Mesmo e pedidos de casamento personalizados. Entrega para todo o Brasil.",obs:""},
 ];
 
+const grid = document.getElementById("places-grid");
+lugares.forEach(l => {
+  grid.innerHTML += `<div class="place-card"><div class="place-card-top"><span class="place-card-emoji">${l.emoji}</span><div><div class="place-card-name">${l.nome}</div><div class="place-card-type">${l.tipo}</div></div></div><div class="place-card-local">📍 ${l.local}</div>${l.cupom?`<span class="place-card-cupom">${l.cupom}</span>`:''}</div>`;
+});
+
 function match(l) {
-  const e = answers;
-  if (e[0] && !l.estilo.includes(e[0])) return false;
-  if (e[1] && !l.orcamento.includes(e[1])) return false;
-  if (e[3] && e[3] !== "tanto" && !l.regiao.includes(e[3]) && !l.regiao.includes("tanto")) return false;
+  if (answers[0] && !l.estilo.includes(answers[0])) return false;
+  if (answers[1] && !l.orcamento.includes(answers[1])) return false;
+  if (answers[3] && answers[3]!=="tanto" && !l.regiao.includes(answers[3]) && !l.regiao.includes("tanto")) return false;
   return true;
 }
 
@@ -764,66 +403,39 @@ document.querySelectorAll(".opt").forEach(btn => {
 });
 
 function nextStep(cur) {
-  document.getElementById(`step-${cur}`).classList.remove("active");
+  document.getElementById(`fstep-${cur}`).classList.remove("active");
   document.getElementById(`seg${cur}`).classList.remove("active");
   document.getElementById(`seg${cur}`).classList.add("done");
   if (cur < 3) {
-    document.getElementById(`step-${cur+1}`).classList.add("active");
+    document.getElementById(`fstep-${cur+1}`).classList.add("active");
     document.getElementById(`seg${cur+1}`).classList.add("active");
   } else {
-    document.getElementById("step-spin").classList.add("active");
+    document.getElementById("fstep-spin").classList.add("active");
     setTimeout(showResult, 1800);
   }
 }
 
 function showResult() {
-  document.getElementById("step-spin").classList.remove("active");
+  document.getElementById("fstep-spin").classList.remove("active");
   const candidates = lugares.filter(match);
-  const lugar = candidates.length ? candidates[Math.floor(Math.random() * candidates.length)] : null;
+  const l = candidates.length ? candidates[Math.floor(Math.random()*candidates.length)] : null;
   const card = document.getElementById("result-card");
-  if (!lugar) {
-    card.innerHTML = `<div style="padding:2rem;text-align:center;color:#6B5B52;font-size:15px;">Não encontramos um lugar exato para essa combinação.<br>Tente ajustar as preferências!</div>`;
+  if (!l) {
+    card.innerHTML = `<div style="padding:2rem;text-align:center;color:var(--mid);font-size:15px;">Não encontramos um lugar exato para essa combinação.<br>Tente ajustar as preferências!</div>`;
   } else {
-    card.innerHTML = `
-      <div class="result-top">
-        <span class="result-emoji">${lugar.emoji}</span>
-        <div>
-          <div class="result-name">${lugar.nome}</div>
-          <div class="result-type">${lugar.tipo}</div>
-        </div>
-      </div>
-      <div class="result-body">
-        <div class="result-row"><span class="result-label">Localização</span><span class="result-value">${lugar.local}</span></div>
-        <div class="result-row"><span class="result-label">Valores</span><span class="result-value">${lugar.valores}</span></div>
-        <div class="result-row"><span class="result-label">Contato</span><span class="result-value">${lugar.contato}</span></div>
-        ${lugar.cupom ? `<div class="result-row"><span class="result-label">Cupom</span><span class="result-value"><span class="cupom-pill">${lugar.cupom}</span></span></div>` : ""}
-        ${lugar.beneficio ? `<div class="result-row"><span class="result-label">Benefício</span><span class="result-value">${lugar.beneficio}</span></div>` : ""}
-        <div class="exp-block">
-          <p class="exp-label">Nossa experiência</p>
-          <p class="exp-text">${lugar.experiencia}</p>
-        </div>
-      </div>`;
+    card.innerHTML = `<div class="result-top"><span class="result-emoji">${l.emoji}</span><div><div class="result-name">${l.nome}</div><div class="result-type">${l.tipo}</div></div></div><div class="result-body"><div class="result-row"><span class="result-label">Localização</span><span class="result-value">${l.local}</span></div><div class="result-row"><span class="result-label">Valores</span><span class="result-value">${l.valores}</span></div><div class="result-row"><span class="result-label">Contato</span><span class="result-value">${l.contato}</span></div>${l.cupom?`<div class="result-row"><span class="result-label">Cupom</span><span class="result-value"><span class="cupom-pill">${l.cupom}</span></span></div>`:""} ${l.beneficio?`<div class="result-row"><span class="result-label">Benefício</span><span class="result-value">${l.beneficio}</span></div>`:""}<div class="exp-block"><p class="exp-label">Nossa experiência</p><p class="exp-text">${l.experiencia}</p>${l.obs?`<p class="obs-text">ℹ️ ${l.obs}</p>`:""}</div></div>`;
   }
-  document.getElementById("step-result").classList.add("active");
+  document.getElementById("fstep-result").classList.add("active");
 }
 
 function restart() {
   Object.keys(answers).forEach(k => delete answers[k]);
   document.querySelectorAll(".opt").forEach(b => b.classList.remove("selected"));
   document.querySelectorAll(".next-btn").forEach(b => b.disabled = true);
-  document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+  document.querySelectorAll(".fstep").forEach(s => s.classList.remove("active"));
   document.querySelectorAll(".progress-seg").forEach((s,i) => { s.classList.remove("done","active"); if(i===0) s.classList.add("active"); });
-  document.getElementById("step-0").classList.add("active");
+  document.getElementById("fstep-0").classList.add("active");
   document.getElementById("finder").scrollIntoView({behavior:"smooth"});
-}
-
-// Petals
-const petals = document.getElementById("petals");
-for (let i = 0; i < 18; i++) {
-  const p = document.createElement("div");
-  p.className = "petal";
-  p.style.cssText = `left:${Math.random()*100}%;width:${4+Math.random()*8}px;height:${4+Math.random()*8}px;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*10}s;`;
-  petals.appendChild(p);
 }
 </script>
 </body>
